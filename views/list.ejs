@@ -1,0 +1,33 @@
+<%- include("headers"); -%>
+
+    <div class="box" id="heading">
+      <h1><%= listTitle %></h1>
+    </div>
+
+    <div class="box">
+      <!-- to render each item in the array one by one -->
+      <% newListItem.forEach(item=>{ %>
+        <form action="/delete" method="post">
+          <div class="item">
+            <input type="checkbox" name="checkbox" value="<%=item._id%>" onchange="this.form.submit()">
+            <p><%= item.name %></p>
+          </div>
+          <!-- this input is not seen by users, the listTitle is from the pageroute we are in -->
+          <input type="hidden" name="listName" value="<%=listTitle%>"></input>
+        </form>
+        
+      <% }) %>
+      
+
+      <form class="item" action="/" method="post">
+        <input type="text" name="toDo" placeholder="Enter New Item" autocomplete="off"/>
+
+        <!-- the listTitle value that appear on the button is from the h1 value -->
+        <button type="submit" name="list" value= <%= listTitle %> >+</button>
+      </form>
+  
+    </div>
+
+    <%- include("footers"); -%>
+    
+  
