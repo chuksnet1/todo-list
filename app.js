@@ -17,7 +17,7 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
 
-mongoose.connect("mongodb+srv://nduchi200:proA782@projectcluster.cth9wp2.mongodb.net/todolistDB")
+mongoose.connect("mongodb://localhost:27017/todolistDB")
 .then(()=>console.log('connected'))
 .catch(e=>console.log(e));
 
